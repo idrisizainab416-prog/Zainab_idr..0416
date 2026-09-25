@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="MathSolve AI - Smart mathematics solver with step-by-step explanations, formulas, practice, syllabus analysis and calculator tools."
+    >
+
+    <title>MathSolve AI | Smart Mathematics</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+    <header class="navbar">
+        <div class="container nav-inner">
+
+            <a href="#home" class="brand" aria-label="MathSolve AI Home">
+                <span class="logo-mark">Σ</span>
+                <span class="brand-text">MathSolve AI</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                onclick="toggleMenu()"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+
+                <a href="#home">Home</a>
+                <a href="#topics">Topics</a>
+                <a href="#solver">Solver</a>
+                <a href="#formulas">Formulas</a>
+                <a href="#practice">Practice</a>
+                <a href="#syllabus">Syllabus</a>
+                <a href="#tools">Tools</a>
+                <a href="#history">History</a>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO / HOME
+    ========================== -->
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        <span>✦</span>
+                        Smart Mathematics Learning
+                    </div>
+
+                    <h1>
+                        Understand Math.
+                        <span>Don’t Just Calculate.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Enter your mathematics problem and get a clear,
+                        step-by-step explanation in simple language.
+                    </p>
+
+
+                    <!-- Main Problem Box -->
+                    <div class="hero-box">
+
+                        <label for="problemInput">
+                            Enter your math problem
+                        </label>
+
+                        <textarea
+                            id="problemInput"
+                            rows="5"
+                            placeholder="Example: Solve 2x + 5 = 15"
+                            aria-label="Enter your mathematics problem"
+                        ></textarea>
+
+
+                        <!-- Upload Image -->
+                        <div class="upload-row">
+
+                            <label
+                                for="questionImage"
+                                class="upload-box"
+                            >
+                                <span class="upload-icon">📷</span>
+
+                                <span>
+                                    <strong>Upload Question Image</strong>
+                                    <small>
+                                        JPG, PNG or WEBP
+                                    </small>
+                                </span>
+                            </label>
+
+                            <input
+                                type="file"
+                                id="questionImage"
+                                accept="image/*"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <!-- Image Preview -->
+                        <div
+                            class="image-preview"
+                            id="imagePreview"
+                            hidden
+                        >
+                            <img
+                                id="previewImage"
+                                src=""
+                                alt="Uploaded mathematics question preview"
+                            >
+
+                            <button
+                                type="button"
+                                class="remove-preview"
+                                onclick="removeImagePreview()"
+                                aria-label="Remove uploaded image"
+                            >
+                                ×
+                            </button>
+                        </div>
+
+
+                        <!-- Action Buttons -->
+                        <div class="action-row">
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                onclick="startVoiceInput()"
+                            >
+                                🎙 Voice Input
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                onclick="solveProblem()"
+                            >
+                                Solve Problem
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline"
+                                onclick="explainCurrentProblem()"
+                            >
+                                🔊 Explain Aloud
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline"
+                                onclick="silentSolution()"
+                            >
+                                🔇 Silent Solution
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Hero Side Card -->
+                <div class="hero-side">
+
+                    <div class="hero-side-card">
+
+                        <div class="side-icon">∑</div>
+
+                        <h3>Learn Step-by-Step</h3>
+
+                        <p>
+                            MathSolve AI breaks difficult questions
+                            into simple and understandable steps.
+                        </p>
+
+                        <div class="side-points">
+
+                            <div>
+                                <span>✓</span>
+                                Easy English
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Hinglish Explanation
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Formula Support
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Practice Questions
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TOPICS
+        ========================== -->
+        <section class="section" id="topics">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        MATHEMATICS TOPICS
+                    </span>
+
+                    <h2>
+                        Explore Mathematics
+                    </h2>
+
+                    <p>
+                        Choose a topic to explore important formulas,
+                        concepts and examples.
+                    </p>
+
+                </div>
+
+
+                <div class="topic-grid">
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('basic')"
+                    >
+                        <span class="topic-icon">＋</span>
+                        <h3>Basic Mathematics</h3>
+                        <p>Numbers, operations and fundamentals.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('arithmetic')"
+                    >
+                        <span class="topic-icon">÷</span>
+                        <h3>Arithmetic</h3>
+                        <p>Percentages, averages and calculations.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('geometry')"
+                    >
+                        <span class="topic-icon">△</span>
+                        <h3>Geometry</h3>
+                        <p>Shapes, areas, perimeter and volume.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('statistics')"
+                    >
+                        <span class="topic-icon">▥</span>
+                        <h3>Statistics</h3>
+                        <p>Mean, median, mode and data.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('probability')"
+                    >
+                        <span class="topic-icon">◉</span>
+                        <h3>Probability</h3>
+                        <p>Chance, events and probability.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('algebra')"
+                    >
+                        <span class="topic-icon">x²</span>
+                        <h3>Algebra</h3>
+                        <p>Expressions, equations and variables.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('matrix')"
+                    >
+                        <span class="topic-icon">▦</span>
+                        <h3>Matrix &amp; Determinants</h3>
+                        <p>Matrices, determinants and operations.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('trigonometry')"
+                    >
+                        <span class="topic-icon">θ</span>
+                        <h3>Trigonometry</h3>
+                        <p>Angles, ratios and identities.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('calculus')"
+                    >
+                        <span class="topic-icon">∫</span>
+                        <h3>Calculus</h3>
+                        <p>Limits, derivatives and integration.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('coordinate')"
+                    >
+                        <span class="topic-icon">⌖</span>
+                        <h3>Coordinate Geometry</h3>
+                        <p>Points, lines and coordinates.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('sets')"
+                    >
+                        <span class="topic-icon">∪</span>
+                        <h3>Sets &amp; Relations</h3>
+                        <p>Sets, relations and operations.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('differential')"
+                    >
+                        <span class="topic-icon">dy</span>
+                        <h3>Differential Equations</h3>
+                        <p>Basic differential equations.</p>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="topic-card"
+                        onclick="showFormula('linear')"
+                    >
+                        <span class="topic-icon">Ax</span>
+                        <h3>Linear Algebra</h3>
+                        <p>Vectors, matrices and linear systems.</p>
+                    </button>
+
+                </div>
+
+
+                <!-- Dynamic Formula -->
+                <div
+                    class="formula-box"
+                    id="formulaBox"
+                    hidden
+                >
+
+                    <div class="formula-header">
+
+                        <div>
+                            <span class="section-label">
+                                FORMULA GUIDE
+                            </span>
+
+                            <h3 id="formulaTitle">
+                                Mathematics Formula
+                            </h3>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="formula-close"
+                            onclick="closeFormula()"
+                            aria-label="Close formula"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                    <p id="formulaDescription"></p>
+
+                    <ul id="formulaList"></ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOLVER
+        ========================== -->
+        <section class="section section-soft" id="solver">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        AI SOLVER
+                    </span>
+
+                    <h2>
+                        Solve Your Problem
+                    </h2>
+
+                    <p>
+                        Enter a question and get a structured,
+                        step-by-step solution.
+                    </p>
+
+                </div>
+
+
+                <div class="solver-layout">
+
+                    <!-- Solver Input -->
+                    <div class="solver-input-card">
+
+                        <label for="solverInput">
+                            Your mathematics question
+                        </label>
+
+                        <textarea
+                            id="solverInput"
+                            rows="8"
+                            placeholder="Example: Find the determinant of [[3,5],[7,9]]"
+                        ></textarea>
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="solveFromSolver()"
+                        >
+                            Solve Step-by-Step
+                        </button>
+
+
+                        <!-- Explanation Language -->
+                        <div class="language-controls">
+
+                            <span>
+                                Explain in:
+                            </span>
+
+                            <button
+                                type="button"
+                                class="language-btn active"
+                                onclick="explainSimple('english')"
+                            >
+                                Easy English
+                            </button>
+
+                            <button
+                                type="button"
+                                class="language-btn"
+                                onclick="explainSimple('hinglish')"
+                            >
+                                Hinglish
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Solution -->
+                    <div class="solution-card">
+
+                        <div class="solution-header">
+
+                            <div>
+                                <span class="section-label">
+                                    SOLUTION
+                                </span>
+
+                                <h3>
+                                    Step-by-Step Answer
+                                </h3>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="solutionArea"
+                            class="solution-area"
+                        >
+                            <div class="empty-solution">
+
+                                <div class="empty-icon">
+                                    ∑
+                                </div>
+
+                                <h4>
+                                    Your solution will appear here
+                                </h4>
+
+                                <p>
+                                    Enter a question and click
+                                    “Solve Step-by-Step”.
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                        <!-- Voice Controls -->
+                        <div class="voice-controls">
+
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                onclick="speakSolution()"
+                            >
+                                🔊 Hear Solution
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline"
+                                onclick="stopSpeaking()"
+                            >
+                                ⏹ Stop
+                            </button>
+
+                            <button
+                                type="button"
+                                class="btn btn-outline"
+                                onclick="silentSolution()"
+                            >
+                                🔇 Silent
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURE BAND
+        ========================== -->
+        <section class="feature-band">
+
+            <div class="container">
+
+                <div class="feature-grid">
+
+                    <div class="feature-card">
+                        <span class="feature-icon">✓</span>
+                        <h3>Step-by-Step</h3>
+                        <p>
+                            Understand every step instead of only
+                            seeing the final answer.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <span class="feature-icon">Aa</span>
+                        <h3>Easy Language</h3>
+                        <p>
+                            Simple English and Hinglish explanations.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <span class="feature-icon">🎙</span>
+                        <h3>Voice Support</h3>
+                        <p>
+                            Speak your problem and listen to solutions.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <span class="feature-icon">▣</span>
+                        <h3>Image Questions</h3>
+                        <p>
+                            Upload a question image for easier solving.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <span class="feature-icon">✦</span>
+                        <h3>Practice Mode</h3>
+                        <p>
+                            Practice questions and check your answers.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <span class="feature-icon">⌁</span>
+                        <h3>Smart Tools</h3>
+                        <p>
+                            Use calculators and mathematical utilities.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SYLLABUS ANALYZER
+        ========================== -->
+        <section class="section" id="syllabus">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        STUDY PLANNER
+                    </span>
+
+                    <h2>
+                        Syllabus Analyzer
+                    </h2>
+
+                    <p>
+                        Upload your syllabus and identify topics
+                        that deserve more attention.
+                    </p>
+
+                </div>
+
+
+                <div class="syllabus-layout">
+
+                    <div class="syllabus-upload-card">
+
+                        <div class="syllabus-icon">
+                            📚
+                        </div>
+
+                        <h3>
+                            Upload Your Syllabus
+                        </h3>
+
+                        <p>
+                            Upload PDF, image or document containing
+                            your mathematics syllabus.
+                        </p>
+
+                        <label
+                            for="syllabusFile"
+                            class="btn btn-secondary"
+                        >
+                            Choose Syllabus
+                        </label>
+
+                        <input
+                            type="file"
+                            id="syllabusFile"
+                            accept=".pdf,.png,.jpg,.jpeg,.doc,.docx"
+                            hidden
+                        >
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="analyzeSyllabus()"
+                        >
+                            Analyze Syllabus
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="syllabus-result-card"
+                        id="syllabusResult"
+                    >
+
+                        <span class="section-label">
+                            ANALYSIS
+                        </span>
+
+                        <h3>
+                            Important Topics
+                        </h3>
+
+                        <p>
+                            Upload your syllabus and click
+                            “Analyze Syllabus”.
+                        </p>
+
+                        <div class="unit-list">
+
+                            <div class="unit-item">
+                                <span>Unit 1</span>
+                                <strong>High Priority</strong>
+                            </div>
+
+                            <div class="unit-item">
+                                <span>Unit 2</span>
+                                <strong>Important</strong>
+                            </div>
+
+                            <div class="unit-item">
+                                <span>Unit 3</span>
+                                <strong>Practice</strong>
+                            </div>
+
+                            <div class="unit-item">
+                                <span>Unit 4</span>
+                                <strong>Revision</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FORMULA LIBRARY
+        ========================== -->
+        <section class="section section-soft" id="formulas">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        FORMULA LIBRARY
+                    </span>
+
+                    <h2>
+                        Important Formulas
+                    </h2>
+
+                    <p>
+                        Quickly revise commonly used mathematics formulas.
+                    </p>
+
+                </div>
+
+
+                <div class="formula-grid">
+
+                    <div class="formula-card">
+
+                        <div class="formula-card-icon">
+                            x²
+                        </div>
+
+                        <h3>Algebra</h3>
+
+                        <ul>
+                            <li>(a + b)² = a² + 2ab + b²</li>
+                            <li>(a - b)² = a² - 2ab + b²</li>
+                            <li>a² - b² = (a-b)(a+b)</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="formula-card">
+
+                        <div class="formula-card-icon">
+                            ▦
+                        </div>
+
+                        <h3>Matrix</h3>
+
+                        <ul>
+                            <li>
+                                det(A) = ad - bc
+                            </li>
+
+                            <li>
+                                A + B = Add corresponding elements
+                            </li>
+
+                            <li>
+                                Matrix multiplication follows row-column rule
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="formula-card">
+
+                        <div class="formula-card-icon">
+                            △
+                        </div>
+
+                        <h3>Geometry</h3>
+
+                        <ul>
+                            <li>Area of circle = πr²</li>
+                            <li>Area of triangle = ½ × base × height</li>
+                            <li>Pythagoras = a² + b² = c²</li>
+                        </ul>
+
+                    </div>
+
+
+                    <div class="formula-card">
+
+                        <div class="formula-card-icon">
+                            x̄
+                        </div>
+
+                        <h3>Statistics</h3>
+
+                        <ul>
+                            <li>Mean = Sum of values ÷ Number of values</li>
+                            <li>Median = Middle value</li>
+                            <li>Mode = Most frequent value</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRACTICE
+        ========================== -->
+        <section class="section" id="practice">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        PRACTICE MODE
+                    </span>
+
+                    <h2>
+                        Test Yourself
+                    </h2>
+
+                    <p>
+                        Try a question and instantly check your answer.
+                    </p>
+
+                </div>
+
+
+                <div class="practice-card">
+
+                    <div class="practice-question">
+
+                        <span class="question-number">
+                            Question 01
+                        </span>
+
+                        <h3>
+                            Solve: 2x + 5 = 15
+                        </h3>
+
+                    </div>
+
+
+                    <div class="practice-options">
+
+                        <button
+                            type="button"
+                            onclick="checkPractice(3)"
+                        >
+                            3
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="checkPractice(5)"
+                        >
+                            5
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="checkPractice(10)"
+                        >
+                            10
+                        </button>
+
+                        <button
+                            type="button"
+                            onclick="checkPractice(7)"
+                        >
+                            7
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="practice-feedback"
+                        id="practiceFeedback"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MISTAKE CHECKER
+        ========================== -->
+        <section class="section section-soft">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        MISTAKE CHECKER
+                    </span>
+
+                    <h2>
+                        Check Your Answer
+                    </h2>
+
+                    <p>
+                        Enter your answer and compare it with the
+                        expected result.
+                    </p>
+
+                </div>
+
+
+                <div class="checker-card">
+
+                    <label for="userAnswer">
+                        Your Answer
+                    </label>
+
+                    <div class="checker-row">
+
+                        <input
+                            type="text"
+                            id="userAnswer"
+                            placeholder="Enter your answer"
+                        >
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="checkMistake()"
+                        >
+                            Check Answer
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        class="mistake-result"
+                        id="mistakeResult"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CALCULATOR TOOLS
+        ========================== -->
+        <section class="section" id="tools">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        MATH TOOLS
+                    </span>
+
+                    <h2>
+                        Calculator Tools
+                    </h2>
+
+                    <p>
+                        Useful mathematical tools for everyday study.
+                    </p>
+
+                </div>
+
+
+                <div class="tool-grid">
+
+                    <!-- Percentage -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">%</span>
+
+                            <div>
+                                <h3>Percentage</h3>
+                                <p>Find percentage of a value.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="input-grid">
+
+                            <input
+                                type="number"
+                                id="percentValue"
+                                placeholder="Value"
+                            >
+
+                            <input
+                                type="number"
+                                id="percentTotal"
+                                placeholder="Total"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="percentage()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="percentResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Average -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">x̄</span>
+
+                            <div>
+                                <h3>Average</h3>
+                                <p>Find the average of numbers.</p>
+                            </div>
+                        </div>
+
+
+                        <input
+                            type="text"
+                            id="averageInput"
+                            placeholder="Example: 10, 20, 30"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="average()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="averageResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Determinant -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">▦</span>
+
+                            <div>
+                                <h3>2×2 Determinant</h3>
+                                <p>Find determinant of a matrix.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="matrix-input">
+
+                            <input
+                                type="number"
+                                id="a"
+                                placeholder="a"
+                            >
+
+                            <input
+                                type="number"
+                                id="b"
+                                placeholder="b"
+                            >
+
+                            <input
+                                type="number"
+                                id="c"
+                                placeholder="c"
+                            >
+
+                            <input
+                                type="number"
+                                id="d"
+                                placeholder="d"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="determinant()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="detResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Pythagoras -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">△</span>
+
+                            <div>
+                                <h3>Pythagoras</h3>
+                                <p>Find the hypotenuse.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="input-grid">
+
+                            <input
+                                type="number"
+                                id="sideA"
+                                placeholder="Side A"
+                            >
+
+                            <input
+                                type="number"
+                                id="sideB"
+                                placeholder="Side B"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="pythagoras()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="pythResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Unit Converter -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">↔</span>
+
+                            <div>
+                                <h3>Unit Converter</h3>
+                                <p>Convert meters to other units.</p>
+                            </div>
+                        </div>
+
+
+                        <input
+                            type="number"
+                            id="meters"
+                            placeholder="Meters"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="convertUnit()"
+                        >
+                            Convert
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="unitResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Scientific Calculator -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">√</span>
+
+                            <div>
+                                <h3>Scientific Calculator</h3>
+                                <p>Perform basic calculations.</p>
+                            </div>
+                        </div>
+
+
+                        <input
+                            type="text"
+                            id="scientific"
+                            placeholder="Example: 25 + 10 * 2"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="scientificCalc()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="scientificResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Probability -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">P</span>
+
+                            <div>
+                                <h3>Probability</h3>
+                                <p>Calculate basic probability.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="input-grid">
+
+                            <input
+                                type="number"
+                                id="favorable"
+                                placeholder="Favorable"
+                            >
+
+                            <input
+                                type="number"
+                                id="possible"
+                                placeholder="Possible"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="probability()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="probResult"
+                        ></div>
+
+                    </div>
+
+
+                    <!-- Circle Area -->
+                    <div class="tool-card">
+
+                        <div class="tool-card-header">
+                            <span class="tool-icon">○</span>
+
+                            <div>
+                                <h3>Circle Area</h3>
+                                <p>Calculate area of a circle.</p>
+                            </div>
+                        </div>
+
+
+                        <input
+                            type="number"
+                            id="radius"
+                            placeholder="Radius"
+                        >
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary full-width"
+                            onclick="circleArea()"
+                        >
+                            Calculate
+                        </button>
+
+
+                        <div
+                            class="tool-result"
+                            id="circleResult"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HISTORY
+        ========================== -->
+        <section class="section section-soft" id="history">
+
+            <div class="container">
+
+                <div class="section-heading history-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            SOLVER HISTORY
+                        </span>
+
+                        <h2>
+                            Recent Questions
+                        </h2>
+
+                        <p>
+                            Your recent solved questions are stored
+                            locally in your browser.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-outline"
+                        onclick="clearHistory()"
+                    >
+                        Clear History
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="history-list"
+                    id="historyList"
+                >
+
+                    <div class="empty-history">
+
+                        <div class="empty-icon">
+                            ◷
+                        </div>
+
+                        <h3>
+                            No history yet
+                        </h3>
+
+                        <p>
+                            Solved questions will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="brand">
+                    <span class="logo-mark">Σ</span>
+                    <span class="brand-text">MathSolve AI</span>
+                </a>
+
+                <p>
+                    Making mathematics easier, clearer and
+                    more understandable.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#home">Home</a>
+                <a href="#topics">Topics</a>
+                <a href="#solver">Solver</a>
+                <a href="#practice">Practice</a>
+                <a href="#tools">Tools</a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 MathSolve AI. Built for smarter mathematics learning.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         TOAST MESSAGE
+    ========================== -->
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    >
+        <span class="toast-icon">✓</span>
+        <span id="toastMessage">
+            Done
+        </span>
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script src="script.js"></script>
+
+</body>
+</html>
